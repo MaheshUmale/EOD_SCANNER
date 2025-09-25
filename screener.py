@@ -11,8 +11,14 @@ def main():
     # 1. Data Acquisition
     tv = TvDatafeed()
 
-    # A small list of NIFTY 50 stocks for development
-    symbols = ['NSE:RELIANCE', 'NSE:TCS', 'NSE:HDFCBANK', 'NSE:INFY', 'NSE:SBIN']
+    # Read NIFTY 50 symbols from file
+    try:
+        with open('nifty50.txt', 'r') as f:
+            symbols = [line.strip() for line in f if line.strip()]
+        print(f"Loaded {len(symbols)} symbols from nifty50.txt")
+    except FileNotFoundError:
+        print("Error: nifty50.txt not found. Please create it with one symbol per line.")
+        return
 
     all_data = {}
 
