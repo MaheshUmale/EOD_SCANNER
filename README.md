@@ -7,11 +7,9 @@ This document outlines a high-level algorithm for an automated end-of-day stock 
 Prerequisites
 Before starting the process, you'll need the following components set up:
 
-A server or local machine to run the script.
+A programming language (Python is highly recommended for its powerful data analysis libraries).
 
-A programming language (e.g., Python is highly recommended for its powerful data analysis libraries).
-
-A reliable source for EOD stock data (e.g., a free or paid API for NSE data).
+A reliable source for EOD stock data ( tvDataFeed).
  
 
 Step 1: Data Acquisition
