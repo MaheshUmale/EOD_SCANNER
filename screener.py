@@ -58,13 +58,11 @@ def main():
         latest = df.iloc[-1]
         previous = df.iloc[-2] if len(df) > 1 else latest
 
-        # Apply screening conditions
+        # Apply screening conditions as per user request
         condition1 = latest['close'] > latest['sma_50']
-        condition2 = latest['volume'] > 2 * latest['avg_vol_30']
-        condition3 = latest['high'] >= previous['high']
-        condition4 = latest['close'] > latest['high'] - (latest['high'] - latest['low']) * 0.1
+        condition2 = latest['volume'] > 1.1 * latest['avg_vol_30']
 
-        if all([condition1, condition2, condition3, condition4]):
+        if all([condition1, condition2]):
             alerts_list.append(symbol)
             print(f"  [ALERT] {symbol} meets all criteria.")
         else:
